@@ -1,0 +1,1 @@
+/home/maxx/Music/Projects/Support Wheel of Fate/buildSrc/build/classes/kotlin/main/Dependencies.class:/home/maxx/Music/Projects/Support Wheel of Fate/buildSrc/build/classes/kotlin/main/Versions.class

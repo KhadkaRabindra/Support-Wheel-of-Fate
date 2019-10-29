@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="com.airasia.supportwheeloffate.ui.register.RegistrationFragmentViewModel"/>
+    </data>
+    <ScrollView
+            style="@style/WidthMatchHeightMatchVertical"
+            android:layout_margin="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+                style="@style/WidthMatchHeightMatchVertical">
+
+            <!--Name-->
+            <TextView
+                    android:id="@+id/nameLabel"
+                    style="@style/LoginFieldTitleStyle"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/name"/>
+            <com.google.android.material.textfield.TextInputLayout style="@style/BorderedTextInputLayoutStyle">
+
+                <LinearLayout style="@style/DefaultInputFieldWrapperStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            style="@style/BorderEditTextStyle"
+                            android:imeOptions="actionNext"
+                            android:text="@={viewModel.fullName}"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/name_is_required}"/>
+                </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Email-->
+            <TextView
+                    android:id="@+id/mobileNumberLabel"
+                    style="@style/LoginFieldTitleStyle"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/mobile_number"/>
+            <com.google.android.material.textfield.TextInputLayout style="@style/BorderedTextInputLayoutStyle">
+
+                <LinearLayout style="@style/DefaultInputFieldWrapperStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            style="@style/BorderEditTextStyle"
+                            android:imeOptions="actionNext"
+                            android:text="@={viewModel.mobileNumber}"
+                            app:validateEmpty="@{true}"
+                            android:inputType="number"
+                            app:validateEmptyMessage="@{@string/email_is_required}"/>
+                </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Email-->
+            <TextView
+                    android:id="@+id/emailLabel"
+                    style="@style/LoginFieldTitleStyle"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/email"/>
+            <com.google.android.material.textfield.TextInputLayout style="@style/BorderedTextInputLayoutStyle">
+
+                <LinearLayout style="@style/DefaultInputFieldWrapperStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            style="@style/BorderEditTextStyle"
+                            android:imeOptions="actionNext"
+                            android:text="@={viewModel.email}"
+                            app:validateEmpty="@{true}"
+                            android:inputType="textEmailAddress"
+                            app:validateEmptyMessage="@{@string/email_is_required}"/>
+                </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Password-->
+            <TextView
+                    android:id="@+id/passwordLabel"
+                    style="@style/LoginFieldTitleStyle"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/password"/>
+            <com.google.android.material.textfield.TextInputLayout style="@style/BorderedTextInputLayoutStyle">
+
+                <LinearLayout style="@style/DefaultInputFieldWrapperStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            style="@style/BorderEditTextStyle"
+                            android:imeOptions="actionNext"
+                            android:text="@={viewModel.password}"
+                            app:validateEmpty="@{true}"
+                            android:inputType="textPassword"
+                            app:validateEmptyMessage="@{@string/password_is_required}"/>
+                </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Confirm Passowrd-->
+            <TextView
+                    android:id="@+id/confirmPasswordLabel"
+                    style="@style/LoginFieldTitleStyle"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/confirm_password"/>
+            <com.google.android.material.textfield.TextInputLayout style="@style/BorderedTextInputLayoutStyle">
+
+                <LinearLayout style="@style/DefaultInputFieldWrapperStyle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            style="@style/BorderEditTextStyle"
+                            android:imeOptions="actionNext"
+                            android:text="@={viewModel.confirmPassword}"
+                            app:validateEmpty="@{true}"
+                            android:inputType="textPassword"
+                            app:validateEmptyMessage="@{@string/password_is_required}"/>
+                </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submitButton"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    style="@style/DefaultButtonStyle"
+                    android:textAllCaps="false"
+                    android:text="@string/submit"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

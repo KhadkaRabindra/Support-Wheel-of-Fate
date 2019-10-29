@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/toolBar"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        style="@style/DefaultToolbarStyle"
+        android:background="@color/default_white_background"
+        app:popupTheme="@style/AppTheme.AppBarOverlay"
+        tools:text="Home"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:titleTextColor="@color/colorPrimary">
+
+    <RelativeLayout
+            android:paddingRight="@dimen/activity_vertical_margin"
+            style="@style/WidthMatchHeightWrapVertical">
+
+        <ImageView
+                style="@style/WidthWrapHeightWrap"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"/>
+
+        <ImageView
+                android:layout_marginStart="10dp"
+                android:id="@+id/navIconImageVIew"
+                style="@style/WidthWrapHeightWrap"
+                android:src="@drawable/ic_nav_icon"
+                android:layout_alignParentStart="true"/>
+
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>

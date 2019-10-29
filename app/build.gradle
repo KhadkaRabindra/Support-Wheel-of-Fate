@@ -1,0 +1,141 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+    defaultConfig {
+        applicationId "com.airasia.supportwheeloffate"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        dev {
+            ext.enableCrashlytics = false
+            buildConfigField "String", "SERVER_URL", '"http://tutorialsonline-001-site1.htempurl.com/"'
+        }
+        debug {
+            ext.enableCrashlytics = false
+            buildConfigField "String", "SERVER_URL", '"http://tutorialsonline-001-site1.htempurl.com/"'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //supportLib
+    implementation Dependencies.supportv4
+    implementation Dependencies.appcompat
+    implementation Dependencies.material
+    implementation Dependencies.recyclerview
+    implementation Dependencies.cardview
+
+    //timber
+    implementation Dependencies.timber
+
+    //crashlytics
+    implementation(Dependencies.crashlytics) {
+        transitive = true
+    }
+
+    //di
+    implementation Dependencies.dagger
+    kapt Dependencies.daggerApt
+
+    //rx
+    implementation Dependencies.rxJava
+    implementation Dependencies.rxAndroid
+    implementation Dependencies.rxKotlin
+
+    //net
+    implementation Dependencies.retrofit
+    implementation Dependencies.okHttp
+    implementation Dependencies.gson
+    implementation Dependencies.rxJavaAdapter
+    implementation Dependencies.gsonConverter
+    implementation Dependencies.httpInterceptor
+
+    //picasso
+    implementation Dependencies.picasso
+
+    //coroutines
+    implementation Dependencies.kotlinxCorotinesCore
+
+    // anko
+    implementation Dependencies.anko
+    implementation Dependencies.ankoCoroutines
+    implementation Dependencies.ankoCommons
+
+    //arch-comp Lifecycles, LiveData, and ViewModel
+    implementation Dependencies.lifeCycleExtensions
+    implementation Dependencies.lifeCycleCommonJava8
+    //arch-comp Room
+    implementation Dependencies.roomRuntime
+    kapt Dependencies.roomCompiler
+    //Paging
+    implementation Dependencies.pagingRuntime
+
+    // data binding
+    kapt Dependencies.datanbindingCompiler
+
+    implementation Dependencies.kotlinStdlib
+
+    //Calligraphy for custom font
+    implementation Dependencies.calligraphy
+
+    //Round imageview
+    implementation Dependencies.roundImageView
+
+    //Spinner
+    implementation(Dependencies.materialSpinner) {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+
+    //Preference room
+    implementation Dependencies.prefRoom
+    kapt Dependencies.prefRoomProcessor
+
+    //Circle imageview
+    implementation Dependencies.circleImageView
+
+    //multidex
+    implementation Dependencies.multidex
+
+    //afollestad/material-dialogs
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+}
